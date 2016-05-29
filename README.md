@@ -1,7 +1,6 @@
 # [MeGa shield](https://telegram.me/AntiSpam_shield)
 
 **An advanced and powerful administration bot based on [yagop/telegram-bot](https://github.com/yagop/telegram-bot) licensed under the [GNU General Public License](https://github.com/hafez16/mega-shield/blob/supergroups/LICENSE)**.
-# Features
 
 | Command | Description |
 |:--------|:------------|
