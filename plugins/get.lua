@@ -17,7 +17,7 @@ local function get_value(msg, var_name)
 end
 
 local function run(msg, matches)
-  if not is_momod(msg) then -- only for mods,owner and admins
+  if not is_momod(msg) then
     return 
   end
   if matches[2] then
