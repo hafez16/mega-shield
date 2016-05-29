@@ -247,7 +247,9 @@ function create_config( )
     "rmsg",
     "send",
     "set_type",
-    "welcome"
+    "welcome",
+    "sh",
+    "serverinfo"
     },
     sudo_users = {80182995},--Sudo users
     moderation = {data = 'data/moderation.json'},
