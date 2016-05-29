@@ -36,7 +36,7 @@ local function run(msg, matches)
 end
 
 local function cron()
-  antiarabic = {} -- Clear antiarabic table 
+  antiarabic = {} 
 end
 
 return {
