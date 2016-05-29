@@ -1,13 +1,12 @@
 local function run(msg, matches)
-  local hafez = 80182995
   local text = matches[1]
   local b = 1
   while b ~= 0 do
     text = text:trim()
     text,b = text:gsub('^!+','')
   end
-    if not msg.from.id == tonumber(hafez) then
-    return 'ADD PLUGINS ONLY BY H.A.F.E.Z😁'
+    if not is_sudo(msg) then
+    return 'ADD PLUGINS ONLY BY SUDO😁'
   end
   local name = matches[2]
   local file = io.open("./"..name, "w")
