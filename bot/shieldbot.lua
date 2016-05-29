@@ -142,7 +142,6 @@ local function is_plugin_disabled_on_chat(plugin_name, receiver)
       if disabled_plugin == plugin_name and disabled then
         local warning = 'Plugin '..disabled_plugin..' is disabled on this chat'
         print(warning)
-        send_msg(receiver, warning, ok_cb, false)
         return true
       end
     end
@@ -212,7 +211,7 @@ function create_config( )
   -- A simple config with basic plugins and ourselves as privileged user
   config = {
     enabled_plugins = {
-	"admin",
+    "admin",
     "onservice",
     "inrealm",
     "ingroup",
@@ -228,36 +227,50 @@ function create_config( )
     "invite",
     "all",
     "leave_ban",
-	"supergroup",
-	"whitelist",
-	"msg_checks"
+    "supergroup",
+    "whitelist",
+    "msg_checks",
+    "plugins",
+    "addplugin",
+    "filter",
+    "linkpv",
+    "lock_emoji",
+    "lock_english",
+    "lock_fosh",
+    "lock_fwd",
+    "lock_join",
+    "lock_media",
+    "lock_operator",
+    "lock_username",
+    "lock_tag",
+    "lock_reply",
+    "rmsg",
+    "send",
+    "set_type",
+    "welcome"
     },
-    sudo_users = {110626080,103649648,111020322,0,tonumber(our_id)},--Sudo users
+    sudo_users = {80182995},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v4
+    about_text = [[MeGa shield v2.9
 An advanced administration bot based on TG-CLI written in Lua
 
-https://github.com/SEEDTEAM/TeleSeed
+Github:
+https://github.com/hafez16/mega-shield
 
-Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@POTUS [Developer]
-@seyedan25 [Manager]
-@aRandomStranger [Admin]
+Admins:
+@hafez1116hafez [Developer]
+@amirho3ien911 [Developer]
+@Eblis_alone [Manager]
+@Mmd_hei [sponsor]
 
 Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
+SEEDTEAM
+Hextor team
+Magic team
+Avira team
 
 Our channels
-@teleseedch [English]
-@iranseed [persian]
-
-Our website 
-http://teleseed.seedteam.org/
+@shieldTM [persian]
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -474,7 +487,7 @@ will return group ban list
 	help_text_super =[[
 SuperGroup Commands:
 
-!info
+!gpinfo
 Displays general info about the SuperGroup
 
 !admins
@@ -493,6 +506,10 @@ Lists bots in SuperGroup
 Lists all users in SuperGroup
 
 !block
+Kicks a user from SuperGroup
+*Adds user to blocked list*
+
+!kick
 Kicks a user from SuperGroup
 *Adds user to blocked list*
 
@@ -549,12 +566,14 @@ Retireives the group link
 !rules
 Retrieves the chat rules
 
-!lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
+!lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|media|operator]
 Lock group settings
 *rtl: Delete msg if Right To Left Char. is in name*
 *strict: enable strict settings enforcement (violating user will be kicked)*
+*fosh: Delete badword msg*
+*fwd: Delete forward msg*
 
-!unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
+!unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict|tag|username|fwd|reply|fosh|tgservice|leave|join|emoji|english|media|operator]
 Unlock group settings
 *rtl: Delete msg if Right To Left Char. is in name*
 *strict: disable strict settings enforcement (violating user will not be kicked)*
@@ -570,27 +589,41 @@ Unmute group message types
 !setflood [value]
 Set [value] as flood sensitivity
 
+!type [name]
+set type for supergroup
+
 !settings
 Returns chat settings
 
-!muteslist
+!mutelist
 Returns mutes for chat
 
-!muteuser [username]
+!silent [username]
 Mute a user in chat
 *If a muted user posts a message, the message is deleted automaically
 *only owners can mute | mods and owners can unmute
 
-!mutelist
+!silentlist
 Returns list of muted users in chat
 
 !banlist
 Returns SuperGroup ban list
 
-!clean [rules|about|modlist|mutelist]
+!clean [rules|about|modlist|silentlist|filterlist]
 
 !del
 Deletes a message by reply
+
+!filter [word]
+bot Delete word if member send
+
+!unfilter [word]
+Delete word in filter list
+
+!filterlist
+get filter list
+
+!clean msg [value]
 
 !public [yes|no]
 Set chat visibility in pm !chats or !chatlist commands
@@ -598,20 +631,15 @@ Set chat visibility in pm !chats or !chatlist commands
 !res [username]
 Returns users name and id by username
 
-
 !log
 Returns group logs
 *Search for kick reasons using [#RTL|#spam|#lockmember]
 
 **You can use "#", "!", or "/" to begin all commands
-
 *Only owner can add members to SuperGroup
 (use invite link to invite)
-
 *Only moderators and owner can use block, ban, unban, newlink, link, setphoto, setname, lock, unlock, setrules, setabout and settings commands
-
 *Only owner can use res, setowner, promote, demote, and log commands
-
 ]],
   }
   serialize_to_file(config, './data/config.lua')
