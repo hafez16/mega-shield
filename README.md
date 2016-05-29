@@ -1,39 +1,26 @@
-# [TeleSeed](https://telegram.me/TeleSeed)
+# [MeGa shield](https://telegram.me/AntiSpam_shield)
 
-[![https://gitter.im/SEEDTEAM/TeleSeed](https://badges.gitter.im/SEEDTEAM/TeleSeed.svg)](https://gitter.im/SEEDTEAM/TeleSeed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-**An advanced and powerful administration bot based on [yagop/telegram-bot](https://github.com/yagop/telegram-bot) licensed under the [GNU General Public License](https://github.com/SEEDTEAM/TeleSeed/blob/master/LICENSE)**.
+**An advanced and powerful administration bot based on [yagop/telegram-bot](https://github.com/yagop/telegram-bot) licensed under the [GNU General Public License](https://github.com/hafez16/mega-shield/blob/supergroups/LICENSE)**.
 # Features
 
-* **A powerful antispam system with custom sensitivity for each group**
-* **Multiple realms (admin groups)**
-* **Recalcitrant to any kind of spamming (X/Y bots, name/photo changers, etc.)**
-* **Global banning**
-* **Broadcast to all groups**
-* **Group and  links**
-* **Kick, ban and unban by reply**
-* **Groups, ban and global ban list**
-* **Logging anything that happens in a group**
-* **Invitation by username**
-* **Group administration via private messages**
-* **Only mods, owner and admin can add bots in groups**
-* **Arabic lock**
-* **Lock TgService**
-* **Chat list**
-* **And more!**
+| Command | Description |
+|:--------|:------------|
+| [#!/]plugin text folder/name.format | for add plugin |
+| ./folder/name.format | for get plugin |
+|$cat folder/name.format | for see plugin |
 
 
 * * *
 
 ## Commands
-TeleSeed has several commands that are only usable at certain ranks.
+MeGa-shield has several commands that are only usable at certain ranks.
 
 
 ## General Commands
 | Command | Description |
 |:--------|:------------|
 | [#!/]id | Returns group/SuperGroup ID or user id in pm. |
-| [#!/]teleseed | Returns bot information. |
+| [#!/]shield| Returns bot information. |
 
 
 ## Private Message Commands
@@ -50,7 +37,7 @@ TeleSeed has several commands that are only usable at certain ranks.
 
 | Command | Description | Groups? | SuperGroups? |
 |:--------|:------------|:--------|:-------------|
-| [#!/]info | Returns general info about the SuperGroup. | N | Y |
+| [#!/]gpinfo | Returns general info about the SuperGroup. | N | Y |
 | [#!/]admins | Returns SuperGroup admins list. | N | Y |
 | [#!/]modlist | Returns Moderator list. | Y | Y |
 | [#!/]owner | Returns group/SuperGroup owner. _Can be used by any user_| Y | Y |
@@ -58,7 +45,7 @@ TeleSeed has several commands that are only usable at certain ranks.
 | [#!/]who | Lists all users in group *SuperGroup returns .txt document list. | Y | Y |
 | [#!/]wholist | Lists all users in group in .txt document. | Y | N |
 | [#!/]block | Kicks a user from SuperGroup **Adds user to blocked list**. | N | Y |
-| [#!/]kick | kicks user from group. | Y | N |
+| [#!/]kick | kicks user from group. | Y | Y |
 | [#!/]ban | Bans user from the group/SuperGroup. | Y | Y |
 | [#!/]unban | Unbans user from group/SuperGroup. | Y | Y |
 | [#!/]id [username<html>&#124;</html>reply] | For userID's: !id @username (**ONLY IN SuperSroups**) or reply `!id` in any group. | Y | Y |
@@ -80,17 +67,17 @@ TeleSeed has several commands that are only usable at certain ranks.
 | [#!/]rules | Retrieves the group/SuperGroup rules. | Y | Y |
 | [#!/]lock [setting](#settings-settings) | Lock group/SuperGroup settings. | Y | Y |
 | [#!/]unlock [setting](#settings-settings) | Unlock group/SuperGroup. | Y | Y |
-| [#!/]mute [mute]#mutes-mutes) | mute group message types. | Y | Y |
+| [#!/]mute [mute](#mutes-mutes) | mute group message types. | Y | Y |
 | [#!/]unmute [mute](#mutes-mutes) | unmute group message types. | Y | Y |
 | [#!/]setflood [value](#settings-settings) | Set [value] as flood sensitivity.| Y | Y |
-| [#!/]muteuser [username<html>&#124;</html>id<html>&#124;</html>reply] | Mute and unmute a user in chat. ***If a muted user posts a message, the message is deleted automaically only owners can mute <html>&#124;</html> mods and owners can unmute*** | Y | Y |
-| [#!/]mutelist | Returns list of muted users in group/SuperGroup. | Y | Y |
+| [#!/]silent [username<html>&#124;</html>id<html>&#124;</html>reply] | Mute and unmute a user in chat. ***If a muted user posts a message, the message is deleted automaically only owners can mute <html>&#124;</html> mods and owners can unmute*** | Y | Y |
+| [#!/]silentlist | Returns list of muted users in group/SuperGroup. | Y | Y |
 | [#!/]muteslist | Returns mutes for group/SuperGroup. | Y | Y |
 | [#!/]settings | Returns a list of group/SuperGroup settings. | Y | Y |
 | [#!/]stats | Returns simple message statistics in a .txt document. | Y | Y |
 | [#!/]statslist | Returns simple message statistics in a message. | Y | Y |
 | [#!/]banlist | Returns group/SuperGroup banlist. | Y | Y |
-| [#!/]clean [rules<html>&#124;</html>about<html>&#124;</html>modlisthtml>&#124;</html>bots<html>&#124;</html>mutelist] | Clears rules, about, modlist, bots, or mutelist | Y | Y |
+| [#!/]clean [rules<html>&#124;</html>about<html>&#124;</html>modlisthtml>&#124;</html>bots<html>&#124;</html>silentlist] | Clears rules, about, modlist, bots, or silentlist | Y | Y |
 | [#!/]del | Deletes a message by reply. | N | Y |
 | [#!/]res [username] | Returns users name and id by username. | Y | Y |
 | [#!/]log | Returns group logs.***In SuperGroups:*** Search for kick reasons using [#RTL<html>&#124;</html>#spam<html>&#124;</html>#lockmember] | Y | Y |
@@ -99,7 +86,7 @@ TeleSeed has several commands that are only usable at certain ranks.
 
 | Command | Description |   groups/SuperGroups? |  In private? |
 |:--------|:------------|:----------------------|:-------------|
-| [#!/]muteuser [username<html>&#124;</html>id<html>&#124;</html>reply] | Mute and unmute a user in chat.***If a muted user posts a message, the message is deleted automaically / only owners can mute / mods and owners can unmute*** |  | N |
+| [#!/]silent [username<html>&#124;</html>id<html>&#124;</html>reply] | Mute and unmute a user in chat.***If a muted user posts a message, the message is deleted automaically / only owners can mute / mods and owners can unmute*** |  | N |
 | [#!/]all | Returns all available information about current group. | Y | N |
 | [#!/]all [GroupID] | Returns all available information about group by GroupID. | Y | N |
 | [#!/]owners [GroupID] [kick<html>&#124;</html>ban<html>&#124;</html>unban] [UserID] | Kick, ban, or unban a user from a group by GroupID and UserID. | N | Y |
@@ -175,12 +162,12 @@ TeleSeed has several commands that are only usable at certain ranks.
 |:--------|:--------|:-------------|
 | <html>&#91;</html>#!/](un)lock links | Y | Y |
 | <html>&#91;</html>#!/](un)lock flood | Y | Y |
-| <html>&#91;</html>#!/]setflood [5-20] | Y | Y |
-| <html>&#91;</html>#!/](un)lock bots | Y | N |
+| <html>&#91;</html>#!/]setflood [1-200] | Y | Y |
+| <html>&#91;</html>#!/](un)lock bots | Y | Y |
 | <html>&#91;</html>#!/](un)lock spam | Y | Y |
 | <html>&#91;</html>#!/](un)lock arabic | Y | Y |
 | <html>&#91;</html>#!/](un)lock member | Y | Y |
-| <html>&#91;</html>#!/](un)lock leave | Y | N |
+| <html>&#91;</html>#!/](un)lock leave | Y | Y |
 | <html>&#91;</html>#!/](un)lock RTL | Y | Y |
 | <html>&#91;</html>#!/](un)lock tgservice | N | Y |
 | <html>&#91;</html>#!/](un)lock sticker | Y| Y |
@@ -235,8 +222,8 @@ sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-d
 
 # Let's install the bot.
 cd $HOME
-git clone https://github.com/SEEDTEAM/TeleSeed.git -b supergroups
-cd TeleSeed
+git clone https://github.com/hafez16/mega-shield.git
+cd mega-shield
 chmod +x launch.sh
 ./launch.sh install
 ./launch.sh # Enter a phone number & confirmation code.
@@ -245,7 +232,7 @@ chmod +x launch.sh
 To install everything in one command (useful for VPS deployment) on Debian-based distros, use:
 ```sh
 #https://github.com/yagop/telegram-bot/wiki/Installation
-sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/SEEDTEAM/TeleSeed.git -b supergroups && cd TeleSeed && chmod +x launch.sh && ./launch.sh install && ./launch.sh
+sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/hafez16/Tmega-shield.git && cd mega-shield && chmod +x launch.sh && ./launch.sh install && ./launch.sh
 ```
 
 * * *
@@ -284,36 +271,7 @@ Create a realm using the `!createrealm` command.
 
 Check out this [tutorial by Telegram Geeks](http://telegramgeeks.com/2016/01/teleseed-tutorial/) for further assistance with setup and installation.
 
-**Do not contact us** in private for support.
-Join our bot development group by sending `/join 1047524697` to [@TeleSeed](https://telegram.me/TeleSeed)
-
-# Special thanks to
-[@seyedan25](https://telegram.me/seyedan25)
-
-For managing [@teleseed](https://telegram.me/TeleSeed) on Telegram.
-
-[@Vamptacus](https://telegram.me/Vamptacus)
-
-For graphic designs.
-
-[topkecleon](https://github.com/topkecleon)
-
-[Juan Potato](https://github.com/JuanPotato)
-
-* * *
-
-# Our team!
-
-[Alphonse](https://github.com/hmon) ([Telegram](https://telegram.me/iwals))
-
-[I M /-\ N](https://github.com/imandaneshi) ([Telegram](https://telegram.me/imandaneshi))
-
-[Siyanew](https://github.com/Siyanew) ([Telegram](https://telegram.me/Siyanew))
-
-[Rondoozle](https://github.com/Rondoozle) ([Telegram](https://telegram.me/POTUS))
-
-### Our Telegram channels:
-
-English: [@TeleSeedCH](https://telegram.me/teleseedch)
-
-Persian: [@IranSeed](https://telegram.me/iranseed)
+[hafez (developer)](https://telegram.me/hafez1116hafez)
+[amir hosein (developer)](https://telegram.me/amirho3ien911)
+[mostafa (manager)](https://telegram.me/Eblis_alone)
+[mohammad (sponsor)](https://telegram.me/Mmd_hei)
