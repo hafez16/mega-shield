@@ -4,8 +4,8 @@ local function run(msg, matches)
 	local action = msg.action.type 
     if data[tostring(msg.to.id)] then
 		if data[tostring(msg.to.id)]['settings'] then
-			if data[tostring(msg.to.id)]['settings']['leave_ban'] then 
-				leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
+			if data[tostring(msg.to.id)]['settings']['leave'] then 
+				leave_ban = data[tostring(msg.to.id)]['settings']['leave']
 			end
 		end
     end
