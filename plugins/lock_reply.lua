@@ -17,7 +17,7 @@ local function run(msg, matches)
   elseif is_momod(msg) and matches[1] == 'unlock' then
                     local hash = 'muter:'..msg.to.id
                     redis:del(hash)
-                    return "reply has been locked"
+                    return "reply has been unlocked"
 end
 end
 return {
